@@ -104,16 +104,8 @@ a {
     float: left;
 }
 
-.playing #controls-join {
-    display: none;
-}
-
 #controls-game {
     float: left;
-}
-
-.waiting #controls-game{
-    display: none;
 }
 
 #controls-status {
@@ -176,11 +168,6 @@ a {
     background-color: #f9006d;
 }
 
-@keyframes pulse {
-    0% { background: #0066EE; }
-    50% { background: #0088FF; }
-    100% { background: #0066EE; }
-}
 @-webkit-keyframes pulse {
     0% { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2); }
     50% { box-shadow: inset 0 0 0 5px rgba(0, 0, 0, 0.2); }
@@ -192,36 +179,31 @@ a {
     background: #D9D9D9;
 }
 
-.list-view {
+#players {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-.list-item {
+#players .player {
     margin: 0;
     padding: 5px;
     border-bottom: 1px solid #CCCCCC;
     text-shadow: 0 1px 0 #FFFFFF;
-    background: #f7f7f7; /* Old browsers */
-    background: -moz-linear-gradient(top, #f7f7f7 0%, #dbdbdb 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#dbdbdb)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #f7f7f7 0%,#dbdbdb 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #f7f7f7 0%,#dbdbdb 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #f7f7f7 0%,#dbdbdb 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #f7f7f7 0%,#dbdbdb 100%); /* W3C */
+    background: #f7f7f7;
+    background: linear-gradient(to bottom, #f7f7f7 0%,#dbdbdb 100%);
 }
 
-.list-item.disabled {
+#players .player.dead {
     opacity: 0.5;
 }
 
-.list-item-title {
+.player-name {
     margin: 0;
     padding: 0;
 }
 
-.list-item-info {
+.player-score {
     padding: 0;
     margin: 0;
     color: #666666;

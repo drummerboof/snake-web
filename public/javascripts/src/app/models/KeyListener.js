@@ -9,7 +9,7 @@ Snake.Models.KeyListener = (function () {
             this._scopedKeyPress = _.bind(this._onKeyPress, this);
         },
 
-        getListeners: function() {
+        getKeys: function() {
             return this._keyMap;
         },
 
@@ -27,8 +27,8 @@ Snake.Models.KeyListener = (function () {
         _onKeyPress: function (event) {
             if (_.has(this._keyMap, event.keyCode)) {
                 event.preventDefault();
-                this.trigger('press', this._keyMap[event.keyCode], event, this);
-                this.trigger('press:' + this._keyMap[event.keyCode], this._keyMap[event.keyCode], event, this);
+                this.trigger('press', this._keyMap[event.keyCode], event);
+                this.trigger('press:' + this._keyMap[event.keyCode], this._keyMap[event.keyCode], event);
             }
         }
 

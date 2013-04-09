@@ -8,7 +8,52 @@
 <body>
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
+    <div id="qunit-test" style="width: 0; height: 0; overflow: hidden; position: relative;"></div>
     <script src="/javascripts/vendor/qunit/qunit.js"></script>
-    <script src="/resources/tests.js"></script>
+    <script src="/javascripts/vendor/sinon.js"></script>
+
+    <!-- Libraries -->
+    <script src="/javascripts/vendor/jquery.js"></script>
+    <script src="/javascripts/vendor/underscore.js"></script>
+    <script src="/javascripts/vendor/backbone.js"></script>
+    <script src="/javascripts/vendor/handlebars-runtime.js"></script>
+
+    <!-- App code -->
+    <script>
+        window.Snake = _.extend({}, Backbone.Events);
+        window.Snake.Views = {};
+        window.Snake.Models = {};
+        window.Snake.Collections = {};
+    </script>
+    <script src="/javascripts/src/app/models/Game.js"></script>
+    <script src="/javascripts/src/app/models/Player.js"></script>
+    <script src="/javascripts/src/app/models/KeyListener.js"></script>
+    <script src="/javascripts/src/app/collections/Players.js"></script>
+
+    <script src="/javascripts/src/app/views/Messages.js"></script>
+    <script src="/javascripts/src/app/views/Canvas.js"></script>
+    <script src="/javascripts/src/app/views/Controls.js"></script>
+    <script src="/javascripts/src/app/views/Scores.js"></script>
+    <script src="/javascripts/src/app/views/PowerUps.js"></script>
+    <script src="/javascripts/src/app/views/Players.js"></script>
+    <script src="/javascripts/src/app/views/Game.js"></script>
+    <script src="/javascripts/src/app/views/templates/templates.js"></script>
+
+    <!-- Model tests -->
+    <script src="/javascripts/test/app/models/Game.test.js"></script>
+    <script src="/javascripts/test/app/models/KeyListener.test.js"></script>
+
+    <!-- View tests -->
+    <script src="/javascripts/test/app/views/Canvas.test.js"></script>
+    <script src="/javascripts/test/app/views/Scores.test.js"></script>
+    <script src="/javascripts/test/app/views/Players.test.js"></script>
+    <script src="/javascripts/test/app/views/PowerUps.test.js"></script>
+    <script src="/javascripts/test/app/views/Controls.test.js"></script>
+    <script src="/javascripts/test/app/views/Messages.test.js"></script>
+    <script src="/javascripts/test/app/views/Game.test.js"></script>
+
+    <!-- Collection tests -->
+    <script src="/javascripts/test/app/collections/Players.test.js"></script>
+
 </body>
 </html>

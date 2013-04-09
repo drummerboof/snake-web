@@ -10,10 +10,6 @@ Snake.Views.Messages = (function () {
 
         el: '#messages',
 
-        events: {
-
-        },
-
         flash: function (message, duration, type) {
             duration = duration || 3000;
             this.render(message, type);
@@ -24,12 +20,14 @@ Snake.Views.Messages = (function () {
 
         render: function (message, type) {
             type = type || statics.MESSAGE;
-            this.$el
-                .empty()
-                .removeClass()
-                .addClass([type, 'visible'].join(' '))
-                .append($('<div />').attr('id', 'message-inner').html(message));
+            this.clear();
+            this.$el.addClass([type, 'visible'].join(' '));
+            this.$el.append($('<div />').attr('id', 'message-inner').html(message));
             return this;
+        },
+
+        renderTemplate: function (template, data, type) {
+            this.render(template(data), type);
         },
 
         clear: function () {

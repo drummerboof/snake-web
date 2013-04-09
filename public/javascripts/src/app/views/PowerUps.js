@@ -4,25 +4,27 @@ Snake.Views.PowerUps = (function () {
 
         el: '#powerups',
 
-        events: {
-
-        },
-
         initialize: function (options) {
             this.template = Handlebars.templates.powerup;
-            this.model.on('change', this.render, this);
+            this.powerUps = new Backbone.Collection();
+            this.powerUps.on('reset', function () {
+                this.render();
+            }, this);
+            this.model.on('change', this._onModelChange, this);
         },
 
         render: function () {
-            if (_.isArray(this.model.get('powerUps'))) {
-                this.$el.empty();
-                _.each(this.model.get('powerUps'), function (powerUp) {
-                    this.$el.append(this.template(_.extend({}, powerUp, {
-                        remaining: Math.ceil((powerUp.duration + (powerUp.applied - Date.now())) / 1000)
-                    })));
-                }, this);
-            }
+            this.$el.empty();
+            this.powerUps.each(function (powerUp) {
+                this.$el.append(this.template(_.extend({}, powerUp.toJSON(), {
+                    remaining: Math.ceil((powerUp.get('duration') + (powerUp.get('applied') - Date.now())) / 1000)
+                })));
+            }, this);
             return this;
+        },
+
+        _onModelChange: function () {
+            this.powerUps.reset(this.model.get('powerUps'));
         }
     });
 

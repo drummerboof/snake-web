@@ -6,7 +6,9 @@ Snake.Views.Scores = (function () {
 
         initialize: function (options) {
             this.template = Handlebars.templates.scores;
-            this.model.on('change:score', this.render, this);
+            this.model.on('change:score', function () {
+                this.render();
+            }, this);
         },
 
         render: function () {

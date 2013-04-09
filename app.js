@@ -17,7 +17,6 @@ app.configure(function(){
     app.set('view options', { layout: false });
     app.engine('.html', cons.swig);
     app.use(express.favicon());
-    app.use(express.logger('prod'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
@@ -27,7 +26,6 @@ app.configure(function(){
 
 app.configure('development', function(){
     app.use(express.errorHandler());
-    app.use(express.logger('dev'));
 });
 
 app.get('/', function (req, res) {
