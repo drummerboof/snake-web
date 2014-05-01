@@ -9,7 +9,7 @@
         "consolidate": "0.8.x",
         "handlebars": "1.0.x",
         "swig": "0.8.x",
-        "snake-server": "git+https://github.com/drummerboof/snake-server.git#master"
+        "snake-server": "drummerboof/snake-server.git#master"
     },
     "scripts": {
         "prestart": "handlebars views/client/ -f public/javascripts/src/app/views/templates/templates.js",
